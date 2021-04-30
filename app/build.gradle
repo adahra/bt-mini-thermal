@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 23
+    compileSdkVersion 30
     buildToolsVersion "30.0.3"
 
     defaultConfig {
         applicationId "zj.com.cn.bluetooth.sdk"
-        minSdkVersion 8
-        targetSdkVersion 8
+        minSdkVersion 21
+        targetSdkVersion 30
     }
 
     buildTypes {
@@ -16,9 +16,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.txt'
         }
     }
+
+    compileOptions {
+        sourceCompatibility 1.8
+        targetCompatibility 1.8
+    }
 }
 
 dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation 'com.nepxion:zxing:1.1.1'
-    implementation files('libs/btsdk.jar')
 }
